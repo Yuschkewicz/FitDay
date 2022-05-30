@@ -11,6 +11,8 @@ import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
+import pages.AddActivityPage;
+import pages.AddFoodPage;
 import pages.DashBoardPage;
 import pages.LoginPage;
 import steps.LoginSteps;
@@ -21,6 +23,8 @@ public class BaseTest {
     LoginPage loginPage;
     LoginSteps loginSteps;
     DashBoardPage dashBoardPage;
+    AddFoodPage addFoodPage;
+    AddActivityPage addActivityPage;
 
     @BeforeMethod
     public void setup(@Optional("chrome") String browser, ITestContext testContext) {
@@ -50,8 +54,10 @@ public class BaseTest {
 
         }
         loginPage = new LoginPage(driver);
-        loginSteps=new LoginSteps(driver);
-        dashBoardPage=new DashBoardPage(driver);
+        loginSteps = new LoginSteps(driver);
+        dashBoardPage = new DashBoardPage(driver);
+        addFoodPage = new AddFoodPage(driver);
+        addActivityPage = new AddActivityPage(driver);
     }
 
     @AfterMethod(alwaysRun = true)

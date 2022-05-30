@@ -42,4 +42,6 @@ public class LoginTest extends BaseTest {
         loginPage.login(name, password);
         assertFalse(dashBoardPage.isPageOpened(), "smth went wrong");
     }
+
+
 }
