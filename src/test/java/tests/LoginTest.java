@@ -10,7 +10,7 @@ public class LoginTest extends BaseTest {
 
     @Test(description = "Positive login with correct user data")
     public void correctUserShouldBeLoggedIn() {
-        loginSteps.login("TSM17-user", "minsk1067");
+        loginSteps.login(user,password);
         assertTrue(dashBoardPage.isPageOpened(), "smth went wrong");
 
     }
@@ -20,7 +20,7 @@ public class LoginTest extends BaseTest {
     public void emptyPassword() {
 
         loginPage.openPage();
-        loginPage.login("TSM17-user", "");
+        loginPage.login(user, "");
         assertEquals(loginPage.getPasswordError(), "Password is required.");
 
     }
@@ -29,7 +29,7 @@ public class LoginTest extends BaseTest {
     public void emptyUserName() {
 
         loginPage.openPage();
-        loginPage.login("", "minsk1067");
+        loginPage.login("", password);
         assertEquals(loginPage.getNameError(), "Username is required.");
     }
 

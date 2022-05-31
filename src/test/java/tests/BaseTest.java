@@ -25,6 +25,8 @@ public class BaseTest {
     DashBoardPage dashBoardPage;
     AddFoodPage addFoodPage;
     AddActivityPage addActivityPage;
+    String user;
+    String password;
 
     @BeforeMethod
     public void setup(@Optional("chrome") String browser, ITestContext testContext) {
