@@ -32,24 +32,41 @@ public class DashBoardTest extends BaseTest {
     public void bicyclingActivity() {
         loginSteps.login(user, password);
         dashBoardPage.addActivity();
-        addActivityPage.addActivityBicycling();
-        addActivityPage.deleteActivity();
+        addActivityPage.chooseActivityLikeBicycling("Bicycling");
+        addActivityPage.chooseTypeOfRide("20 mph or more not drafting");
+        addActivityPage.chooseHourOfRacing("5");
+        addActivityPage.chooseDistanceOfRacing("133");
+        addActivityPage.chooseUnit("kms");
+        addActivityPage.clickAdd();
+        addActivityPage.checkActivity("biking");
+        addActivityPage.deleteActivityBike();
     }
 
     @Test
     public void runningActivity() {
         loginSteps.login(user, password);
         dashBoardPage.addActivity();
-        addActivityPage.addActivityRunning();
-        addActivityPage.deleteActivity();
+        addActivityPage.addActivityLikeRunning("Running");
+        addActivityPage.chooseSpeedOfRunning("8.5 min/mile (7 mph)");
+        addActivityPage.timeOfRunning("5");
+        addActivityPage.distanceOfRunning("10");
+        addActivityPage.chooseUnitToRunning("kms");
+        addActivityPage.clickAddRunning();
+        addActivityPage.checkRunningAvailable("running");
+        addActivityPage.deleteActivityRun();
     }
 
     @Test
     public void skiingActivity() {
         loginSteps.login(user, password);
         dashBoardPage.addActivity();
-        addActivityPage.addActivitySkiing();
-        addActivityPage.deleteActivity();
+        addActivityPage.addActivityLikeSkiing("Winter activities");
+        addActivityPage.chooseTypeOfWinterActivities(" downhill skiing");
+        addActivityPage.crazyDownhillChooseType("vigorous effort, racing");
+        addActivityPage.chooseTimeToSkiing("8");
+        addActivityPage.clickAddButton();
+        addActivityPage.checkDownHillAvailable("downhill skiing");
+        addActivityPage.deleteActivityDownhill();
     }
 
 
@@ -57,15 +74,14 @@ public class DashBoardTest extends BaseTest {
     public void searchActivity() {
         loginSteps.login(user, password);
         dashBoardPage.addActivity();
-        addActivityPage.addActivityBySearch();
-        addActivityPage.deleteActivity();
+        addActivityPage.addActivityBySearch("fly");
+        addActivityPage.chooseAvailableVariant("flying airplane");
+        addActivityPage.chooseFlightHour("13");
+        addActivityPage.clickAddFlight();
+        addActivityPage.checkFlightAvailable("flying airplane");
+        addActivityPage.deleteFlight();
 
 
     }
-// under reconstruction
-    @Test
-    public void weight() {
-        loginSteps.login(user, password);
-        dashBoardPage.weight();
-    }
+
 }

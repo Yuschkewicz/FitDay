@@ -10,7 +10,7 @@ public class LoginTest extends BaseTest {
 
     @Test(description = "Positive login with correct user data")
     public void correctUserShouldBeLoggedIn() {
-        loginSteps.login(user,password);
+        loginSteps.login(user, password);
         assertTrue(dashBoardPage.isPageOpened(), "smth went wrong");
 
     }

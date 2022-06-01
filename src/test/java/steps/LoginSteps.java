@@ -17,9 +17,8 @@ public class LoginSteps {
     @Step("Log in with: user '{user}', password '{password}'")
     public void login(String user, String password) {
         loginPage.openPage();
-        assertTrue(loginPage.isPageOpened(),"Smth went wrong");
+        assertTrue(loginPage.isPageOpened(), "Smth went wrong");
         loginPage.login(user, password);
-
 
 
     }

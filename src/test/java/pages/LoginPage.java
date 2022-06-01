@@ -10,8 +10,8 @@ public class LoginPage extends BasePage {
     public static final By USER_NAME = By.id("username");
     public static final By PASSWORD = By.cssSelector("input[type='password']");
     public static final By LOGIN_BUTTON = By.cssSelector("input[type='submit']");
-    public static final By ERROR_NAME_MESSAGE =By.xpath("//p[text()='Username is required.']");
-    public static final By ERROR_PASSWORD_MESSAGE =By.xpath("//p[text()='Password is required.']");
+    public static final By ERROR_NAME_MESSAGE = By.xpath("//p[text()='Username is required.']");
+    public static final By ERROR_PASSWORD_MESSAGE = By.xpath("//p[text()='Password is required.']");
 
 
     public LoginPage(WebDriver driver) {
@@ -25,7 +25,7 @@ public class LoginPage extends BasePage {
 
     @Step("Opening login page")
     public void openPage() {
-        driver.get(startUrl+"fitness/Login.html");
+        driver.get(startUrl + "fitness/Login.html");
         PageFactory.initElements(driver, this);
     }
 
@@ -42,10 +42,11 @@ public class LoginPage extends BasePage {
 
     }
 
-    public String getNameError(){
-         return driver.findElement(ERROR_NAME_MESSAGE).getText();
+    public String getNameError() {
+        return driver.findElement(ERROR_NAME_MESSAGE).getText();
     }
-    public String getPasswordError(){
-         return driver.findElement(ERROR_PASSWORD_MESSAGE).getText();
+
+    public String getPasswordError() {
+        return driver.findElement(ERROR_PASSWORD_MESSAGE).getText();
     }
 }

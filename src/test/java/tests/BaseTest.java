@@ -8,16 +8,14 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.testng.ITestContext;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
+import org.testng.annotations.*;
 import pages.AddActivityPage;
 import pages.AddFoodPage;
 import pages.DashBoardPage;
 import pages.LoginPage;
 import steps.LoginSteps;
 import utils.PropertyReader;
-
+@Listeners(TestListener.class)
 public class BaseTest {
 
     WebDriver driver;
@@ -28,7 +26,7 @@ public class BaseTest {
     AddActivityPage addActivityPage;
     String user;
     String password;
-
+    @Parameters({"browser"})
     @BeforeMethod
     public void setup(@Optional("chrome") String browser, ITestContext testContext) {
         if (System.getProperty("browser", "chrome").equalsIgnoreCase("chrome")) {
