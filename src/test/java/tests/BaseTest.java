@@ -16,6 +16,7 @@ import pages.AddFoodPage;
 import pages.DashBoardPage;
 import pages.LoginPage;
 import steps.LoginSteps;
+import utils.PropertyReader;
 
 public class BaseTest {
 
@@ -53,6 +54,8 @@ public class BaseTest {
                 WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
             }
+            testContext.setAttribute("driver", driver);
+            driver.manage().window().maximize();
 
         }
         loginPage = new LoginPage(driver);
@@ -60,6 +63,8 @@ public class BaseTest {
         dashBoardPage = new DashBoardPage(driver);
         addFoodPage = new AddFoodPage(driver);
         addActivityPage = new AddActivityPage(driver);
+        user = System.getProperty("user", PropertyReader.getProperty("user"));
+        password = System.getProperty("password", PropertyReader.getProperty("password"));
     }
 
     @AfterMethod(alwaysRun = true)

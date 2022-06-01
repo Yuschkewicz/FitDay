@@ -60,7 +60,6 @@ public class AddActivityPage extends BasePage {
         Select select = new Select(dropdown);
         select.selectByVisibleText("Winter activities");
         waitForElement(By.xpath("//td[contains(text(),'downhill skiing')]"));
-
         WebElement downhillSkinng = driver.findElement(By.xpath("//tbody/tr[8]/td[2]/select[1]"));
         downhillSkinng.click();
         Select speed = new Select(downhillSkinng);

@@ -8,7 +8,9 @@ public class DashBoardTest extends BaseTest {
     public void addFoodBySearch() {
         loginSteps.login(user, password);
         dashBoardPage.addFood();
-        addFoodPage.addFoodBySearch();
+        addFoodPage.addFoodBySearch("Lard");
+        addFoodPage.choosePortion("13","tablespoon");
+        addFoodPage.checkPosition("Lard");
         addFoodPage.deleteFood();
 
     }
@@ -18,6 +20,11 @@ public class DashBoardTest extends BaseTest {
         loginSteps.login(user, password);
         dashBoardPage.addFood();
         addFoodPage.addFoodByBrowse();
+        addFoodPage.chooseTypeOfFood("Fish");
+        addFoodPage.chooseTypeOfFish("FinFish");
+        addFoodPage.chooseKindOfFinfish("Barracuda");
+        addFoodPage.choosePortionOfFish("400","grams");
+        addFoodPage.checkPositionOfFish("Barracuda, baked or broiled");
         addFoodPage.deleteFood();
     }
 

@@ -27,13 +27,14 @@ public class DashBoardPage extends BasePage {
 
     public void addFood() {
         driver.get(startUrl + "app/dashboard");
+        driver.findElement(By.xpath("(//a[contains(@class,'add')])[1]")).click();
+        waitForElement(By.xpath("//strong[contains(text(),'Search')]"));
 
     }
 
 
     public void addActivity() {
-        driver.findElement(By.xpath("//body[1]/div[1]/div[5]/div[2]/div[1]" +
-                "/table[1]/tbody[1]/tr[3]/td[2]/a[1]/span[2]")).click();
+        driver.findElement(By.xpath("(//a[contains(@class,'add')])[2]")).click();
         waitForElement(By.xpath("//select[@id='activity-browse']"));
 
 
