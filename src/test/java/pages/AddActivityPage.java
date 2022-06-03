@@ -23,7 +23,7 @@ public class AddActivityPage extends BasePage {
     }
 
     public void chooseTypeOfRide(String speed) {
-        WebElement dropdown = driver.findElement(By.xpath("(//*[contains(text(), 'biking')]/../..//*[contains(@class,'subname')])[2]/select"));
+        WebElement dropdown = driver.findElement(By.xpath("(//select[@name='pkey'])[1]"));
         dropdown.click();
         Select select = new Select(dropdown);
         select.selectByVisibleText(speed);
@@ -31,31 +31,27 @@ public class AddActivityPage extends BasePage {
 
     public void chooseHourOfRacing(String hour) {
 
-        driver.findElement(By.xpath("(//*[contains(text(), 'biking')]/../.." +
-                "//*[contains(@class,'hours js-bound')])[2]")).clear();
-        driver.findElement(By.xpath("(//*[contains(text(), 'biking')]/../.." +
-                "//*[contains(@class,'hours js-bound')])[2]")).sendKeys(hour);
+        driver.findElement(By.xpath("(//input[@name='hours'])[2]")).clear();
+        driver.findElement(By.xpath("(//input[@name='hours'])[2]")).sendKeys(hour);
     }
 
     public void chooseDistanceOfRacing(String distance) {
-        driver.findElement(By.xpath("(//*[contains(text(), 'biking')]/../.." +
-                "//*[contains(@class,'distance js-bound')])[2]")).sendKeys(distance);
+        driver.findElement(By.xpath("(//input[@name='distance'])[2]")).sendKeys(distance);
     }
 
     public void chooseUnit(String unit) {
-        WebElement dropdown = driver.findElement(By.xpath("(//*[contains(text(), 'biking')]/../..//*" +
-                "[contains(@class,'unit')])[3]/select"));
+        WebElement dropdown = driver.findElement(By.xpath("(//select[@name='unit'])[2]"));
         dropdown.click();
         Select select = new Select(dropdown);
         select.selectByVisibleText(unit);
     }
 
     public void clickAdd() {
-        driver.findElement(By.xpath("(//*[contains(text(), 'biking')]/../..//*[contains(@class,'add')])[2]")).click();
+        driver.findElement(By.xpath("(//a)[81]")).click();
         waitForElement(By.xpath("//div[@id='activity-add-top']//span[contains(text(), 'Add to Activity Log')]"));
         driver.findElement(By.xpath("//div[@id='activity-add-top']//span[contains(text(), " +
                 "'Add to Activity Log')]")).click();
-        waitForElement(By.xpath("//div[@id='activity-log']//td[contains(text(), 'biking')]"));
+        waitForElement(By.xpath("//td[@class='name']"));
     }
 
     public void checkActivity(String activity) {
@@ -69,39 +65,34 @@ public class AddActivityPage extends BasePage {
         dropdown.click();
         Select select = new Select(dropdown);
         select.selectByVisibleText(activity);
-        waitForElement(By.xpath("//a[contains(text(),'running')]"));
+        waitForElement(By.xpath("(//a[normalize-space()='running'])[1]"));
     }
 
     public void chooseSpeedOfRunning(String speedRun) {
-        WebElement dropRun = driver.findElement(By.xpath("//*[contains(text(), " +
-                "'running')]/../..//*[contains(@class,'subname')]/select"));
+        WebElement dropRun = driver.findElement(By.xpath("//select[@name='pkey']"));
         dropRun.click();
         Select run = new Select(dropRun);
         run.selectByVisibleText(speedRun);
     }
 
     public void timeOfRunning(String time) {
-        driver.findElement(By.xpath("(//*[contains(text(), 'running')]/../.." +
-                "//*[contains(@class,'hours js-bound')])[5]")).clear();
-        driver.findElement(By.xpath("(//*[contains(text(), 'running')]/../.." +
-                "//*[contains(@class,'hours js-bound')])[5]")).sendKeys(time);
+        driver.findElement(By.xpath("(//input[@name='hours'])[5]")).clear();
+        driver.findElement(By.xpath("(//input[@name='hours'])[5]")).sendKeys(time);
     }
 
     public void distanceOfRunning(String distance) {
-        driver.findElement(By.xpath("(//*[contains(text(), 'running')]/../.." +
-                "//*[contains(@class,'distance js-bound')])[5]")).sendKeys(distance);
+        driver.findElement(By.xpath("(//input[@name='distance'])[5]")).sendKeys(distance);
     }
 
     public void chooseUnitToRunning(String unit) {
-        WebElement dropRun = driver.findElement(By.xpath("(//*[contains(text(), 'running')]/../.." +
-                "//*[contains(@class,'unit')])[9]/select"));
+        WebElement dropRun = driver.findElement(By.xpath("(//select[@name='unit'])[5]"));
         dropRun.click();
         Select run = new Select(dropRun);
         run.selectByVisibleText(unit);
     }
 
     public void clickAddRunning() {
-        driver.findElement(By.xpath("(//*[contains(text(), 'running')]/../..//*[contains(@class,'add')])[5]")).click();
+        driver.findElement(By.xpath("(//a)[84]")).click();
         waitForElement(By.xpath("//div[@id='activity-add-top']//span[contains(text(), 'Add to Activity Log')]"));
         driver.findElement(By.xpath("//div[@id='activity-add-top']//span[contains(text(), " +
                 "'Add to Activity Log')]")).click();
@@ -126,22 +117,19 @@ public class AddActivityPage extends BasePage {
     }
 
     public void crazyDownhillChooseType(String speedToDeath) {
-        WebElement downhillSkinng = driver.findElement(By.xpath("(//*[contains(text(), 'downhill skiing')]/../.." +
-                "//*[contains(@class,'subname')])[8]/select"));
+        WebElement downhillSkinng = driver.findElement(By.xpath("(//select[@name='pkey'])[3]"));
         downhillSkinng.click();
         Select speed = new Select(downhillSkinng);
         speed.selectByVisibleText(speedToDeath);
     }
 
     public void chooseTimeToSkiing(String hour) {
-        driver.findElement(By.xpath("(//*[contains(text(), 'downhill skiing')]/../..//*" +
-                "[contains(@class,'hours js-bound')])[8]")).clear();
-        driver.findElement(By.xpath("//tbody/tr[8]/td[3]/input[1]")).sendKeys(hour);
+        driver.findElement(By.xpath("(//input[@name='hours'])[8]")).clear();
+        driver.findElement(By.xpath("(//input[@name='hours'])[8]")).sendKeys(hour);
     }
 
     public void clickAddButton() {
-        driver.findElement(By.xpath("(//*[contains(text(), 'downhill skiing')]/../.." +
-                "//*[contains(@class,'add')])[8]")).click();
+        driver.findElement(By.xpath("(//a[@class='add icon'])[8]")).click();
         waitForElement(By.xpath("//span[contains(text(),'Add to Activity Log')]"));
         driver.findElement(By.xpath("//span[contains(text(),'Add to Activity Log')]")).click();
         waitForElement(By.xpath("//a[contains(text(),'Activity Log')]"));
@@ -163,15 +151,13 @@ public class AddActivityPage extends BasePage {
     }
 
     public void chooseFlightHour(String hour) {
-        driver.findElement(By.xpath("//*[contains(text(), ' flying airplane')]/../..//" +
-                "*[contains(@class,'hours js-bound')]")).clear();
-        driver.findElement(By.xpath("//*[contains(text(), ' flying airplane')]/../..//" +
-                "*[contains(@class,'hours js-bound')]")).sendKeys(hour);
+        driver.findElement(By.xpath("(//input[@name='hours'])[1]")).clear();
+        driver.findElement(By.xpath("(//input[@name='hours'])[1]")).sendKeys(hour);
     }
 
 
     public void clickAddFlight() {
-        driver.findElement(By.xpath("//*[contains(text(), 'flying airplane')]/../..//*[contains(@class,'add')]")).click();
+        driver.findElement(By.xpath("(//a)[79]")).click();
         waitForElement(By.xpath("//div[@id='activity-add-top']//span[contains(text(), 'Add to Activity Log')]"));
         driver.findElement(By.xpath("//div[@id='activity-add-top']//span[contains(text(), " +
                 "'Add to Activity Log')]")).click();
