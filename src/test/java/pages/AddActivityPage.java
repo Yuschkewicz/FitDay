@@ -23,7 +23,7 @@ public class AddActivityPage extends BasePage {
     }
 
     public void chooseTypeOfRide(String speed) {
-        WebElement dropdown = driver.findElement(By.xpath("(//*[contains(text(), 'running')]/../..//*[contains(@class,'subname')])[5]/select"));
+        WebElement dropdown = driver.findElement(By.xpath("(//*[contains(text(), 'biking')]/../..//*[contains(@class,'subname')])[2]/select"));
         dropdown.click();
         Select select = new Select(dropdown);
         select.selectByVisibleText(speed);

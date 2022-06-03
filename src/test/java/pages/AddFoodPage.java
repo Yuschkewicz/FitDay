@@ -14,27 +14,23 @@ public class AddFoodPage extends BasePage {
 
     public void addFoodBySearch(String type) {
         driver.findElement(By.cssSelector("[value='What did you eat today?']")).sendKeys("Lard");
-        waitForElement(By.xpath("//a[contains(text(),'Lard')]"));
+        waitForElement(By.xpath("(//td[@class='name'])[1]"));
     }
 
     public void choosePortion(String amount, String unit) {
-        driver.findElement(By.xpath("//div[@id='food-search-all']//a[contains(text(), 'Lard')]/../..//" +
-                "*[contains(@class,'amount js-bound')]")).clear();
-        driver.findElement(By.xpath("//div[@id='food-search-all']//a[contains(text(), 'Lard')]/../..//" +
-                "*[contains(@class,'amount js-bound')]")).sendKeys(amount);
-        WebElement dropdown = driver.findElement(By.xpath("//div[@id='food-search-all']//a[contains(text(), " +
-                "'Lard')]/../..//*[contains(@class,'unit')]/select"));
+        driver.findElement(By.xpath("(//input[@name='amount'])[1]")).clear();
+        driver.findElement(By.xpath("(//input[@name='amount'])[1]")).sendKeys(amount);
+        WebElement dropdown = driver.findElement(By.xpath("(//select[@name='unit'])[1]"));
 
         dropdown.click();
         Select select = new Select(dropdown);
         select.selectByVisibleText(unit);
-        driver.findElement(By.xpath("//div[@id='food-search-all']//a[contains(text(), 'Lard')]/../..//" +
-                "a[contains(@class,'add')]")).click();
-        waitForElement(By.xpath("//div[@id='food-log']//a[contains(text(), 'Lard')]"));
+        driver.findElement(By.xpath("//a[contains(@class,'add')]")).click();
+        waitForElement(By.xpath("(//td[@class='name'])[12]"));
     }
 
     public void checkPosition(String amount) {
-        String text = driver.findElement(By.xpath("//div[@id='food-log']//a[contains(text(), 'Lard')]")).getText();
+        String text = driver.findElement(By.xpath("//td[@class='name']")).getText();
         assertEquals(amount, text);
     }
 
@@ -47,39 +43,35 @@ public class AddFoodPage extends BasePage {
 
     public void chooseTypeOfFood(String type) {
         driver.findElement(By.xpath("(//td[contains(@class,'name')])[8]")).click();
-        waitForElement(By.xpath("//a[contains(text(),'Fish')]"));
+        waitForElement(By.xpath("(//span)[21]"));
     }
 
     public void chooseTypeOfFish(String type) {
         driver.findElement(By.xpath("(//*[contains(@class,'name')])[8]")).click();
-        waitForElement(By.xpath("//a[contains(text(),'Finfish')]"));
+        waitForElement(By.xpath("(//span)[21]"));
     }
 
     public void chooseKindOfFinfish(String kindOf) {
 
         driver.findElement(By.xpath("(//td[contains(@class,'name')])[2]")).click();
-        waitForElement(By.xpath("//a[contains(text(),'Barracuda')]"));
+        waitForElement(By.xpath("(//span)[16]"));
     }
 
     public void choosePortionOfFish(String amount, String unit) {
-
-        driver.findElement(By.xpath("//div[@id='food-search-all']//a[contains(text(), " +
-                "'Barracuda, baked or broiled')]/../..//*[contains(@class,'amount')]/input")).sendKeys(amount);
-        WebElement dropdown = driver.findElement(By.xpath("//div[@id='food-search-all']//a[contains(text(), " +
-                "'Barracuda, baked or broiled')]/../..//*[contains(@class,'unit')]/select"));
+        driver.findElement(By.xpath("(//input[@name='amount'])[1]")).clear();
+        driver.findElement(By.xpath("(//input[@name='amount'])[1]")).sendKeys(amount);
+        WebElement dropdown = driver.findElement(By.xpath("(//select[@name='unit'])[1]"));
         dropdown.click();
         Select gram = new Select(dropdown);
         gram.selectByVisibleText(unit);
-        driver.findElement(By.xpath("//div[@id='food-search-all']//a[contains(text(), " +
-                "'Barracuda, baked or broiled')]/../..//*[contains(@class,'add')]")).click();
-        waitForElement(By.xpath("//body[1]/div[1]/div[5]/div[3]/div[1]/table[1]/tbody[1]/tr[1]/td[4]"));
+        driver.findElement(By.xpath("(//a[@class='add icon'])[1]")).click();
+        waitForElement(By.xpath("(//td[@class='name'])[12]"));
 
     }
 
     public void checkPositionOfFish(String amount) {
 
-        String text = driver.findElement(By.xpath("//div[@id='food-log']//a[contains(text(), " +
-                "'Barracuda, baked or broiled')]")).getText();
+        String text = driver.findElement(By.xpath("(//td[@class='name'])[12]")).getText();
         assertEquals(amount, text);
     }
 
