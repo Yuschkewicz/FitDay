@@ -15,6 +15,9 @@ import pages.DashBoardPage;
 import pages.LoginPage;
 import steps.LoginSteps;
 import utils.PropertyReader;
+
+import java.time.Duration;
+
 @Listeners(TestListener.class)
 public class BaseTest {
 
@@ -54,7 +57,7 @@ public class BaseTest {
             }
             testContext.setAttribute("driver", driver);
             driver.manage().window().maximize();
-
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         }
         loginPage = new LoginPage(driver);
         loginSteps = new LoginSteps(driver);

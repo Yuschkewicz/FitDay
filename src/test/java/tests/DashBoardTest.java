@@ -4,27 +4,50 @@ import org.testng.annotations.Test;
 
 public class DashBoardTest extends BaseTest {
 
-    @Test
+    @Test(description = "using food search by example Lard")
     public void addFoodBySearch() {
         loginSteps.login(user, password);
         dashBoardPage.addFood();
         addFoodPage.addFoodBySearch("Lard");
         addFoodPage.choosePortion("13","tablespoon");
-        addFoodPage.checkPosition("Lard");
+        addFoodPage.checkPositionBrowseFood("Lard");
         addFoodPage.deleteFood();
-
     }
 
-    @Test
+
+    @Test(description = "using food search by example Fish")
+    public void addFishUsingSearch() {
+        loginSteps.login(user, password);
+        dashBoardPage.addFood();
+        addFoodPage.addFoodBySearch("Fish, cisco, raw");
+        addFoodPage.choosePortionOfFood("1","kg");
+        addFoodPage.checkPositionBrowseFood("Fish, cisco, raw");
+        addFoodPage.deleteFood();
+    }
+
+    @Test(description = "use of selective food by browse")
     public void addFoodByBrowse() {
         loginSteps.login(user, password);
         dashBoardPage.addFood();
         addFoodPage.addFoodByBrowse();
         addFoodPage.chooseTypeOfFood("Fish");
-        addFoodPage.chooseTypeOfFish("FinFish");
-        addFoodPage.chooseKindOfFinfish("Barracuda");
-        addFoodPage.choosePortionOfFish("400","grams");
-        addFoodPage.checkPositionOfFish("Barracuda, baked or broiled");
+        addFoodPage.chooseSubTypeOfFood("Finfish");
+        addFoodPage.chooseKindOfFood("Barracuda");
+        addFoodPage.choosePortionOfFood("400","grams");
+        addFoodPage.checkPositionBrowseFood("Barracuda, baked or broiled");
+        addFoodPage.deleteFood();
+    }
+
+    @Test(description = "use of selective food by browse 2")
+    public void addFoodByBrowse2() {
+        loginSteps.login(user, password);
+        dashBoardPage.addFood();
+        addFoodPage.addFoodByBrowse();
+        addFoodPage.chooseTypeOfFood("Pasta and Cereal Grains");
+        addFoodPage.chooseSubTypeOfFood("Flower");
+        addFoodPage.chooseKindOfFood("Biscuit mix, dry");
+        addFoodPage.choosePortionOfFood("2","lb");
+        addFoodPage.checkPositionBrowseFood("Biscuit mix, dry");
         addFoodPage.deleteFood();
     }
 
