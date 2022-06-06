@@ -1,6 +1,7 @@
 package pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,14 +21,14 @@ public class AddFoodPage extends BasePage {
 
     public void choosePortion(String amount, String unit) {
         driver.findElement(By.xpath("(//input[@name='amount'])[1]")).clear();
-        driver.findElement(By.xpath("(//input[@name='amount'])[1]")).sendKeys(amount);
+        driver.findElement(By.xpath(String.format("(//input[@name='amount'])[1]",amount)));
         WebElement dropdown = driver.findElement(By.xpath("(//select[@name='unit'])[1]"));
 
         dropdown.click();
         Select select = new Select(dropdown);
         select.selectByVisibleText(unit);
         driver.findElement(By.xpath("//a[contains(@class,'add')]")).click();
-        waitForElement(By.xpath("(//td[@class='name'])[12]")); //ЧТО ЭТО И МОЖНО ЛИ НАЙТИ ЛУЧШЕ???
+        waitForElement(By.xpath("//*[@class='ib-list']//td[@class='name']"));
     }
 
 

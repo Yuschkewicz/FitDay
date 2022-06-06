@@ -1,11 +1,12 @@
 package tests;
 
+import lombok.extern.log4j.Log4j2;
 import org.testng.annotations.Test;
 
 import java.util.Random;
 
 import static org.testng.Assert.*;
-
+@Log4j2
 public class LoginTest extends BaseTest {
 
     @Test(description = "Positive login with correct user data")

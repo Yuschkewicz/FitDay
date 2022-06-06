@@ -1,6 +1,7 @@
 package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -17,7 +18,7 @@ import steps.LoginSteps;
 import utils.PropertyReader;
 
 import java.time.Duration;
-
+@Log4j2
 @Listeners(TestListener.class)
 public class BaseTest {
 

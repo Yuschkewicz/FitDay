@@ -17,6 +17,7 @@
         <allureMaven.version>2.10.0</allureMaven.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <log4j.version>2.17.2</log4j.version>
         <suiteXmlFile>src/test/resources/regression.xml</suiteXmlFile>
     </properties>
 
@@ -82,6 +83,21 @@
             <version>${allureTestNg.version}</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.17.2</version>
+        </dependency>
+
 
     </dependencies>
 

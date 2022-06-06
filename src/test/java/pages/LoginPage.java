@@ -1,18 +1,18 @@
 package pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
+@Log4j2
 public class LoginPage extends BasePage {
     public static final By USER_NAME = By.id("username");
     public static final By PASSWORD = By.cssSelector("input[type='password']");
     public static final By LOGIN_BUTTON = By.cssSelector("input[type='submit']");
     public static final By ERROR_NAME_MESSAGE = By.xpath("//p[text()='Username is required.']");
     public static final By ERROR_PASSWORD_MESSAGE = By.xpath("//p[text()='Password is required.']");
-
 
     public LoginPage(WebDriver driver) {
         super(driver);
