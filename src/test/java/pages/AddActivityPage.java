@@ -19,7 +19,7 @@ public class AddActivityPage extends BasePage {
         dropdown.click();
         Select select = new Select(dropdown);
         select.selectByVisibleText(activity);
-        waitForElement(By.xpath("//a[contains(text(),'bicycling')]"));
+       // waitForElement(By.xpath(String.format("//a[normalize-space()='%s']",activity)));
     }
 
     public void chooseTypeOfRide(String speed) {
@@ -47,7 +47,8 @@ public class AddActivityPage extends BasePage {
     }
 
     public void clickAdd() {
-        driver.findElement(By.xpath("(//a)[81]")).click();
+        driver.findElement(By.xpath("//body[1]/div[1]/div[5]/div[2]/div[3]/div[1]" +
+                "/div[1]/form[1]/table[1]/tbody[1]/tr[2]/td[7]/a[1]")).click();
         waitForElement(By.xpath("//div[@id='activity-add-top']//span[contains(text(), 'Add to Activity Log')]"));
         driver.findElement(By.xpath("//div[@id='activity-add-top']//span[contains(text(), " +
                 "'Add to Activity Log')]")).click();
@@ -55,7 +56,7 @@ public class AddActivityPage extends BasePage {
     }
 
     public void checkActivity(String activity) {
-        String text = driver.findElement(By.xpath("//div[@id='activity-log']//td[contains(text(), 'biking')]")).getText();
+        String text = driver.findElement(By.xpath(String.format("//div[@id='activity-log']//td[contains(text(), '%s')]", activity))).getText();
         assertEquals(activity, text);
     }
 
@@ -65,7 +66,7 @@ public class AddActivityPage extends BasePage {
         dropdown.click();
         Select select = new Select(dropdown);
         select.selectByVisibleText(activity);
-        waitForElement(By.xpath("(//a[normalize-space()='running'])[1]"));
+        waitForElement(By.xpath(String.format("(//a[normalize-space()='%s'])[1]", activity)));
     }
 
     public void chooseSpeedOfRunning(String speedRun) {
@@ -92,7 +93,7 @@ public class AddActivityPage extends BasePage {
     }
 
     public void clickAddRunning() {
-        driver.findElement(By.xpath("(//a)[84]")).click();
+        driver.findElement(By.xpath("//body[1]/div[1]/div[5]/div[2]/div[3]/div[1]/div[1]/form[1]/table[1]/tbody[1]/tr[5]/td[7]/a[1]")).click();
         waitForElement(By.xpath("//div[@id='activity-add-top']//span[contains(text(), 'Add to Activity Log')]"));
         driver.findElement(By.xpath("//div[@id='activity-add-top']//span[contains(text(), " +
                 "'Add to Activity Log')]")).click();
@@ -147,7 +148,7 @@ public class AddActivityPage extends BasePage {
     }
 
     public void chooseAvailableVariant(String available) {
-        waitForElement(By.xpath("//td[contains(text(),'flying airplane')]"));
+        waitForElement(By.xpath(String.format("//td[contains(text(),'flying airplane')]",available)));
     }
 
     public void chooseFlightHour(String hour) {
@@ -157,7 +158,8 @@ public class AddActivityPage extends BasePage {
 
 
     public void clickAddFlight() {
-        driver.findElement(By.xpath("(//a)[79]")).click();
+        driver.findElement(By.xpath("//body[1]/div[1]/div[5]" +
+                "/div[2]/div[3]/div[1]/div[1]/form[1]/table[1]/tbody[1]/tr[1]/td[7]/a[1]")).click();
         waitForElement(By.xpath("//div[@id='activity-add-top']//span[contains(text(), 'Add to Activity Log')]"));
         driver.findElement(By.xpath("//div[@id='activity-add-top']//span[contains(text(), " +
                 "'Add to Activity Log')]")).click();

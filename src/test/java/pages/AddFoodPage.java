@@ -36,7 +36,8 @@ public class AddFoodPage extends BasePage {
         String featuredFood = driver.findElement(By.xpath("//*[@class='ib-list']//td[@class='name']")).getText();
         assertEquals(selectedFood, featuredFood);
     }
-    @Step( "click button Browse")
+
+    @Step("click button Browse")
     public void addFoodByBrowse() {
 
         driver.findElement(By.xpath("//a[contains(text(),'Browse')]")).click();
@@ -48,6 +49,7 @@ public class AddFoodPage extends BasePage {
         driver.findElement(By.xpath(String.format("//div[@id='food-top']//td[normalize-space()='%s']", type))).click();
 
     }
+
     @Step("choice of food subtype")
     public void chooseSubTypeOfFood(String type) {
         driver.findElement(By.xpath(String.format("//div[@id='food-top']//td[normalize-space()='%s']", type))).click();
@@ -60,6 +62,7 @@ public class AddFoodPage extends BasePage {
         driver.findElement(By.xpath(String.format("//div[@id='food-top']//td[normalize-space()='%s']", kindOf))).click();
 
     }
+
     @Step(" choise portion of food")
     public void choosePortionOfFood(String amount, String unit) {
         driver.findElement(By.xpath("(//input[@name='amount'])[1]")).clear();
@@ -72,10 +75,11 @@ public class AddFoodPage extends BasePage {
 
 
     }
+
     @Step("checking the availability of the selected food")
     public void checkPositionBrowseFood(String selectedFood) {
-       String text=driver.findElement(By.xpath(String.format("//div[@id='food-bottom']//a[normalize-space()='%s']", selectedFood))).getText();
-       assertEquals(text,selectedFood);
+        String text = driver.findElement(By.xpath(String.format("//div[@id='food-bottom']//a[normalize-space()='%s']", selectedFood))).getText();
+        assertEquals(text, selectedFood);
 
     }
 

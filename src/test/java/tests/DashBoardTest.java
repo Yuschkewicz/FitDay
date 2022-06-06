@@ -51,7 +51,7 @@ public class DashBoardTest extends BaseTest {
         addFoodPage.deleteFood();
     }
 
-    @Test
+    @Test(description = " test bicycling")
     public void bicyclingActivity() {
         loginSteps.login(user, password);
         dashBoardPage.addActivity();
@@ -65,7 +65,7 @@ public class DashBoardTest extends BaseTest {
         addActivityPage.deleteActivityBike();
     }
 
-    @Test
+    @Test(description = "test running")
     public void runningActivity() {
         loginSteps.login(user, password);
         dashBoardPage.addActivity();
@@ -75,11 +75,11 @@ public class DashBoardTest extends BaseTest {
         addActivityPage.distanceOfRunning("10");
         addActivityPage.chooseUnitToRunning("kms");
         addActivityPage.clickAddRunning();
-        addActivityPage.checkRunningAvailable("running");
+        addActivityPage.checkActivity("running");
         addActivityPage.deleteActivityRun();
     }
 
-    @Test
+    @Test(description = "test skiing")
     public void skiingActivity() {
         loginSteps.login(user, password);
         dashBoardPage.addActivity();
@@ -88,12 +88,12 @@ public class DashBoardTest extends BaseTest {
         addActivityPage.crazyDownhillChooseType("vigorous effort, racing");
         addActivityPage.chooseTimeToSkiing("8");
         addActivityPage.clickAddButton();
-        addActivityPage.checkDownHillAvailable("downhill skiing");
+        addActivityPage.checkActivity("downhill skiing");
         addActivityPage.deleteActivityDownhill();
     }
 
 
-    @Test
+    @Test(description = "test random")
     public void searchActivity() {
         loginSteps.login(user, password);
         dashBoardPage.addActivity();
@@ -101,7 +101,7 @@ public class DashBoardTest extends BaseTest {
         addActivityPage.chooseAvailableVariant("flying airplane");
         addActivityPage.chooseFlightHour("13");
         addActivityPage.clickAddFlight();
-        addActivityPage.checkFlightAvailable("flying airplane");
+        addActivityPage.checkActivity("flying airplane");
         addActivityPage.deleteFlight();
 
 
