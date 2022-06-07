@@ -8,22 +8,23 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import static org.testng.Assert.assertEquals;
-
+@Log4j2
 public class AddFoodPage extends BasePage {
     public AddFoodPage(WebDriver driver) {
         super(driver);
     }
 
+    @Step("choose food by manual search")
     public void addFoodBySearch(String type) {
         driver.findElement(By.cssSelector("[value='What did you eat today?']")).sendKeys(type);
         waitForElement(By.xpath("(//td[@class='name'])[1]"));
     }
 
+    @Step("choose the size and quantity of portions")
     public void choosePortion(String amount, String unit) {
         driver.findElement(By.xpath("(//input[@name='amount'])[1]")).clear();
-        driver.findElement(By.xpath(String.format("(//input[@name='amount'])[1]",amount)));
+        driver.findElement(By.xpath("(//input[@name='amount'])[1]")).sendKeys(amount);
         WebElement dropdown = driver.findElement(By.xpath("(//select[@name='unit'])[1]"));
-
         dropdown.click();
         Select select = new Select(dropdown);
         select.selectByVisibleText(unit);
@@ -84,7 +85,7 @@ public class AddFoodPage extends BasePage {
 
     }
 
-
+    @Step("universal method for removing added food")
     public void deleteFood() {
         driver.findElement(By.xpath("//tbody/tr[1]/td[8]/a[1]")).click();
         waitForElement(By.xpath("//body/div[@id='container']/div[@id='main']/div[@id='food-bottom']/" +

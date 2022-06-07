@@ -2,6 +2,7 @@ package tests;
 
 import lombok.extern.log4j.Log4j2;
 import org.testng.annotations.Test;
+
 @Log4j2
 public class DashBoardTest extends BaseTest {
 
@@ -10,7 +11,7 @@ public class DashBoardTest extends BaseTest {
         loginSteps.login(user, password);
         dashBoardPage.addFood();
         addFoodPage.addFoodBySearch("Lard");
-        addFoodPage.choosePortion("13","tablespoon");
+        addFoodPage.choosePortion("13", "tablespoon");
         addFoodPage.checkPositionBrowseFood("Lard");
         addFoodPage.deleteFood();
     }
@@ -21,7 +22,7 @@ public class DashBoardTest extends BaseTest {
         loginSteps.login(user, password);
         dashBoardPage.addFood();
         addFoodPage.addFoodBySearch("Fish, cisco, raw");
-        addFoodPage.choosePortionOfFood("1","kg");
+        addFoodPage.choosePortionOfFood("1", "kg");
         addFoodPage.checkPositionBrowseFood("Fish, cisco, raw");
         addFoodPage.deleteFood();
     }
@@ -34,7 +35,7 @@ public class DashBoardTest extends BaseTest {
         addFoodPage.chooseTypeOfFood("Fish");
         addFoodPage.chooseSubTypeOfFood("Finfish");
         addFoodPage.chooseKindOfFood("Barracuda");
-        addFoodPage.choosePortionOfFood("400","grams");
+        addFoodPage.choosePortionOfFood("400", "grams");
         addFoodPage.checkPositionBrowseFood("Barracuda, baked or broiled");
         addFoodPage.deleteFood();
     }
@@ -47,7 +48,7 @@ public class DashBoardTest extends BaseTest {
         addFoodPage.chooseTypeOfFood("Pasta and Cereal Grains");
         addFoodPage.chooseSubTypeOfFood("Flower");
         addFoodPage.chooseKindOfFood("Biscuit mix, dry");
-        addFoodPage.choosePortionOfFood("2","lb");
+        addFoodPage.choosePortionOfFood("2", "lb");
         addFoodPage.checkPositionBrowseFood("Biscuit mix, dry");
         addFoodPage.deleteFood();
     }

@@ -18,6 +18,7 @@ import steps.LoginSteps;
 import utils.PropertyReader;
 
 import java.time.Duration;
+
 @Log4j2
 @Listeners(TestListener.class)
 public class BaseTest {
@@ -30,6 +31,7 @@ public class BaseTest {
     AddActivityPage addActivityPage;
     String user;
     String password;
+
     @Parameters({"browser"})
     @BeforeMethod
     public void setup(@Optional("chrome") String browser, ITestContext testContext) {

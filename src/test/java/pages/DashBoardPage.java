@@ -5,9 +5,10 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+
 @Log4j2
 public class DashBoardPage extends BasePage {
-    public static final By USER_TITLE=By.cssSelector("[id='profile-link']");
+    public static final By USER_TITLE = By.cssSelector("[id='profile-link']");
 
 
     public DashBoardPage(WebDriver driver) {
@@ -40,8 +41,6 @@ public class DashBoardPage extends BasePage {
 
 
     }
-
-
 
 
 }
