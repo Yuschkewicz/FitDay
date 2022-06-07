@@ -23,6 +23,7 @@ import java.time.Duration;
 @Listeners(TestListener.class)
 public class BaseTest {
 
+
     WebDriver driver;
     LoginPage loginPage;
     LoginSteps loginSteps;
